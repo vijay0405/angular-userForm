@@ -5,7 +5,7 @@ const userRoutes = require("./routes/user");
 const app = express();
 
 
-mongoose.connect('mongodb+srv://bhardwajaditya113:Deutsche2016@cluster0-hnrji.gcp.mongodb.net/users?retryWrites=true&w=majority', { useNewUrlParser: true })
+mongoose.connect('mongodb://localhost:27017/test', { useNewUrlParser: true })
   .then(() => {
     console.log("Connected to database!");
   })
@@ -30,11 +30,5 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/user", userRoutes);
-
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
 
 module.exports = app;
